@@ -10,7 +10,7 @@
                         <template v-for="(value, index) in row" :key="index">
                             <th v-on:click="giuCho(value)">
                                 <div class="border rounded shadow-sm bg-light">
-                                    <div class="fw-bold">{{ value.ten_ghe }} <br>  {{ formatVND(value.gia_ve) }}</div>
+                                    <div class="fw-bold">{{ value.ten_ghe }} <br> {{ formatVND(value.gia_ve) }}</div>
                                     <template v-if="value.id_don_dat_ve > 0">
                                         <i class="fa-solid fa-couch fa-couch fa-2x mt-0 text-danger"></i>
                                         <br>
@@ -57,8 +57,8 @@
                         <template v-if="value.tinh_trang == 1">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img :src="value.hinh_anh"
-                                        alt="" style="height: 180px; width: 190px; object-fit: cover;">
+                                    <img :src="value.hinh_anh" alt=""
+                                        style="height: 180px; width: 190px; object-fit: cover;">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -68,7 +68,8 @@
                                             <p class="card-text fw-bold mb-0">Giá: {{ formatVND(value.gia) }}</p>
                                             <div class="">
                                                 <div class="input-group input-group-sm">
-                                                    <button class="btn btn-primary" v-on:click="addDichVu(value)">Thêm dịch vụ</button>
+                                                    <button class="btn btn-primary" v-on:click="addDichVu(value)">Thêm
+                                                        dịch vụ</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,23 +84,23 @@
             <div class="col-lg-6">
                 <div class="card radius-10 border-top border-0 border-5 border-warning">
                     <div class="card-body">
-                        <div class="d-flex mb-2">
-                            <img src="https://iguov8nhvyobj.vcdn.cloud/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/c/o/copy_of_250220_dr25_main_b1_localized_embbed_1_.jpg"
-                                alt="" class="img-fluid rounded me-3" style="width:150px">
+                        <div v-if="tt_phim && tt_phim.thoi_gian_bat_dau && tt_phim.ngay_chieu" class="d-flex mb-2">
+                            <img :src="tt_phim.hinh_anh" alt="" class="img-fluid rounded me-3" style="width:300px">
                             <div>
-                                <h6 class="mb-1 fw-bold">Phim điện ảnh Doraemon: Nobita và cuộc phiêu lưu tìm kiếm kho
-                                    báo</h6>
-                                <p class="mb-1 text-muted small">2D Lồng Tiếng</p>
+                                <h6 class="mb-1 fw-bold">{{ tt_phim.ten_phim }}</h6>
+                                <p class="mb-1 text-muted small">{{ tt_phim.the_loai }}</p>
                             </div>
                         </div>
-                        <p class="mb-3">Suất chiếu: <strong>14:00</strong> - Thứ Năm, <strong>29/05/2025
+                        <p class="mb-3">Suất chiếu: <strong>{{ tt_phim.thoi_gian_bat_dau }}</strong> - <strong>{{
+                            tt_phim.thoi_gian_ket_thuc }}</strong> - Ngày: <strong>{{ tt_phim.ngay_chieu }}
                                 <strong></strong></strong></p>
                         <hr class="my-2" style="border: 1px dashed;">
                         <template v-for="(value, index) in list_ben_phai" :key="index">
                             <template v-if="value.type == 1">
                                 <div class="d-flex justify-content-between">
                                     <div>{{ value.ten_ghe }}</div>
-                                    <div>{{ formatVND(value.gia_ve) }} <button @click="btnXoaGhe(value)" class="btn btn-danger btn-sm">x</button></div>
+                                    <div>{{ formatVND(value.gia_ve) }} <button @click="btnXoaGhe(value)"
+                                            class="btn btn-danger btn-sm">x</button></div>
                                 </div>
                                 <hr class="my-2" style="border: 1px dashed;">
                             </template>
@@ -109,7 +110,8 @@
                             <template v-if="value.type == 2">
                                 <div class="d-flex justify-content-between">
                                     <div>{{ value.ten_dich_vu }}</div>
-                                    <div>{{ formatVND(value.gia_ve) }} <button @click="btnXoaGhe(value)" class="btn btn-danger btn-sm">x</button></div>
+                                    <div>{{ formatVND(value.gia_ve) }} <button @click="btnXoaGhe(value)"
+                                            class="btn btn-danger btn-sm">x</button></div>
                                 </div>
                                 <hr class="my-2" style="border: 1px dashed;">
                             </template>
@@ -117,8 +119,10 @@
 
 
                         <div class="d-flex justify-content-start mt-1">
-                            <input v-model="ma_voucher" placeholder="Nhập vào mã voucher" type="text" class="form-control me-4">
-                            <button @click="thongTinVoucher()" class="btn btn-info text-light text-nowrap">Áp dụng</button>
+                            <input v-model="ma_voucher" placeholder="Nhập vào mã voucher" type="text"
+                                class="form-control me-4">
+                            <button @click="thongTinVoucher()" class="btn btn-info text-light text-nowrap">Áp
+                                dụng</button>
                         </div>
                         <hr class="my-2" style="border: 1px dashed;">
                         <div class="d-flex justify-content-between">
@@ -150,42 +154,55 @@ export default {
     data() {
         return {
             id_suat_chieu: this.$route.params.id_suat_chieu,
+            tt_phim: {},
             list_ve: [],
             list_ben_trai: [],
             list_ben_phai: [],
             so_ghe_1_hang: null,
             ma_voucher: "",
-            kq_voucher:{},
+            kq_voucher: {},
         };
     },
     mounted() {
         this.getVe();
         this.getDichVu();
+        this.getPhim();
     },
     methods: {
-        thongTinVoucher(){
+        getPhim() {
+            axios
+                .post("http://127.0.0.1:8000/api/client/get-phim", { id_suat_chieu: this.id_suat_chieu }) // ✅ nhớ truyền object
+                .then((res) => {
+                    this.tt_phim = res.data.data 
+                })
+                .catch((err) => {
+                    console.error(err);
+                    this.tt_phim = {};
+                });
+        },
+        thongTinVoucher() {
             var payload = {
-                ma_code : this.ma_voucher
+                ma_code: this.ma_voucher
             };
             axios
                 .post("http://127.0.0.1:8000/api/client/ap-voucher", payload)
-                .then((res) =>{
-                    if(res.data.status){
+                .then((res) => {
+                    if (res.data.status) {
                         this.$toast.success(res.data.message);
                         this.kq_voucher = res.data.data;
-                    }else{
+                    } else {
                         this.$toast.error(res.data.message);
                     }
                 })
         },
-        btnXoaGhe(value){
+        btnXoaGhe(value) {
             value.id_don_dat_ve = 0;
             this.list_ben_phai = this.list_ben_phai.filter(item => !(item.id === value.id && item.type === value.type))
         },
-        addDichVu(value){
-            value.ten_ghe   = value.ten_dich_vu
-            value.gia_ve    = value.gia
-            value.type      = 2
+        addDichVu(value) {
+            value.ten_ghe = value.ten_dich_vu
+            value.gia_ve = value.gia
+            value.type = 2
             this.list_ben_phai.push(value)
         },
         formatVND(number) {
@@ -225,7 +242,7 @@ export default {
                 this.list_ben_phai = this.list_ben_phai.filter(item => !(item.id == value.id && item.type == 1))
             }
         },
-        thanhToan(){
+        thanhToan() {
             var payload = {
                 'ma_code': this.ma_voucher,
                 'list_ben_phai': this.list_ben_phai
@@ -236,15 +253,15 @@ export default {
                         Authorization: "Bearer " + localStorage.getItem('key_khach_hang'),
                     },
                 })
-                .then((res) =>{
+                .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
-                    
+
                     } else {
                         this.$toast.error(res.data.message);
                     }
                 })
-               
+
         },
     },
     computed: {
@@ -260,12 +277,12 @@ export default {
             // return this.list_ben_phai.reduce((sum, value) => sum += value.gia_ve, 0)
             let tong = 0;
             let so_tien_giam = 0;
-            for(let i = 0; i < this.list_ben_phai.length; i++){
+            for (let i = 0; i < this.list_ben_phai.length; i++) {
                 tong += this.list_ben_phai[i].gia_ve;
             }
-            if(tong >= this.kq_voucher.so_tien_toi_da){
+            if (tong >= this.kq_voucher.so_tien_toi_da) {
                 so_tien_giam = tong * this.kq_voucher.so_giam_gia
-                if(so_tien_giam > this.kq_voucher.so_tien_giam_gia){
+                if (so_tien_giam > this.kq_voucher.so_tien_giam_gia) {
                     so_tien_giam = this.kq_voucher.so_tien_giam_gia;
                 }
             }

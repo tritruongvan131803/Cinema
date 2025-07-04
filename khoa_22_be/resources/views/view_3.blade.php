@@ -448,12 +448,16 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($data['ds_dv'] as $index => $value)
-              <tr>
-                <td>{{ $value->ten_dv }}</td>
-                <td>{{ number_format($value->gia_ve,0) }}</td>
-              </tr>
-            @endforeach
+         @foreach ($data['ds_dv'] as $index => $value)
+  <tr>
+    <td>
+      {{ is_object($value) ? $value->ten_dich_vu : $value['ten_dich_vu'] ?? 'N/A' }}
+    </td>
+    <td>
+      {{ is_object($value) ? number_format($value->gia ?? 0, 0) : number_format($value['gia'] ?? 0, 0) }}
+    </td>
+  </tr>
+@endforeach
           </tbody>
         </table>
       </div>

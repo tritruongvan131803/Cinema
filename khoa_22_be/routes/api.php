@@ -42,7 +42,7 @@ Route::post('/admin/nhan-vien/update', [NhanVienController::class, 'update']);
 Route::post('/admin/nhan-vien/delete', [NhanVienController::class, 'destroy']);
 Route::post('/admin/nhan-vien/change-status', [NhanVienController::class, 'changeStatus']);
 
-//
+Route::post('/admin/in-ve/get-phim',[DonHangController::class,'getPhimByDonHang']);
 //Chức Vụ
 Route::get('/admin/chuc-vu/get-data', [ChucVuController::class, 'getData']);
 Route::post('/admin/chuc-vu/add-data', [ChucVuController::class, 'addData']);
@@ -160,5 +160,8 @@ Route::middleware('auth:sanctum')->post('/client/dat-ve/thanh-toan', [DonHangCon
 Route::get('/client/dat-ve/get-Data', [DonHangController::class, 'getData']);
 Route::post('/client/dat-ve/delete', [DonHangController::class, 'destroy']);
 
+//client phim
+Route::get('/client/phim-dang-chieu', [PhimController::class, 'getData']);
+Route::post('/client/get-phim', [DonHangController::class, 'getPhimByDatVe']);
 
 

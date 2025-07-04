@@ -15,7 +15,7 @@ class PhimController extends Controller
             'data' => $data
         ]);
     }
-
+  
     public function addData(Request $request)
     {
         Phim::create([

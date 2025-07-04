@@ -13,7 +13,7 @@ class VeController extends Controller
         $ve = Ve::join('suat_chieus', 'suat_chieus.id', 'ves.id_suat_chieu')
             ->join('phims', 'phims.id', 'suat_chieus.id_phim')
             ->join('phong_chieus', 'phong_chieus.id', 'suat_chieus.id_phong_chieu')
-            ->select('ves.*', 'phims.ten_phim', 'phong_chieus.ten_phong', 'suat_chieus.thoi_gian_bat_dau', 'suat_chieus.ngay_chieu')
+            ->select('ves.*', 'phong_chieus.ten_phong', 'suat_chieus.thoi_gian_bat_dau', 'suat_chieus.ngay_chieu')
             ->get();
         return response()->json([
             'data' => $ve

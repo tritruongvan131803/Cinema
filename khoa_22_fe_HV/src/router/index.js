@@ -125,6 +125,12 @@ const routes = [
     meta: { layout: "blank" },
     props: true,
   },
+  {
+    path: "/admin/in-ve/:ma_hoa_don",
+    component: () => import("../components/Admin/InVe/InVe.vue"),
+    meta: { layout: "blank" },
+    props: true,
+  },
 ];
 
 const router = createRouter({

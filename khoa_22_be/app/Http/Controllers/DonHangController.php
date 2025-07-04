@@ -12,20 +12,23 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class DonHangController extends Controller
 {
     public function getData(Request $request)
     {
         $data = DonHang::leftjoin('khach_hangs', 'don_hangs.id_khach_hang', '=', 'khach_hangs.id')
-            ->select('don_hangs.*', 'khach_hangs.ho_va_ten as ten_khach_hang')
+                        ->leftjoin('ves','don_hangs.id_khach_hang','ves.id_don_dat_ve')
+                        ->leftjoin('suat_chieus','ves.id_don_dat_ve','suat_chieus.id')
+                        ->leftjoin('phims','suat_chieus.id_phim','phims.id')
+            ->select('don_hangs.*', 'khach_hangs.ho_va_ten as ten_khach_hang', 'phims.ten_phim', 'phims.hinh_anh')
             ->get();
 
         return response()->json([
             'data' => $data,
         ]);
     }
-
     public function thanhToan(Request $request)
     {
         $user = Auth::guard('sanctum')->user();
@@ -42,7 +45,7 @@ class DonHangController extends Controller
 
         $ds_ve = Ve::where('id_don_dat_ve', 0)->whereIn('id', $list_Ve)->get();
        
-        $c['ds_dv'] =[];
+        $c['ds_dv'] = [];
         $tien_dv = 0;
         foreach ($list_dv as $key => $value) {
             $tien_dv = $tien_dv + DichVu::where('id', $value)->first()->gia;
@@ -73,7 +76,7 @@ class DonHangController extends Controller
             $don_hang = DonHang::create([
                 'id_khach_hang'                  => $user->id,
                 'ma_don_hang'                    => 'BINI-' . Carbon::now()->timestamp,
-                'ngay_dat'                       => Carbon::today(),
+                'ngay_dat'                       => Carbon::now(),
                 'tien_thuc_nhan'                 => $tong_tien - $tien_giam_gia,
                 'tong_tien'                      => $tong_tien,
                 'giam_gia'                       => $tien_giam_gia,
@@ -124,8 +127,6 @@ class DonHangController extends Controller
             ]);
         }
     }
-
-
     public function xoaDonHang($id_don_dat_ve)
     {
         $check = DonHang::where('id', $id_don_dat_ve)->where('is_thanh_toan', 0)->first();
@@ -145,5 +146,43 @@ class DonHangController extends Controller
                 'message' => 'Không thể xóa đơn hàng đã thanh toán',
             ]);
         }
+    }
+    public function getPhimByDonHang(Request $request)
+    {
+        $data = DonHang::join('ves','don_hangs.id', 'ves.id_don_dat_ve')
+                        ->join('suat_chieus','ves.id_suat_chieu','suat_chieus.id')
+                        ->join('phims','suat_chieus.id_phim','phims.id')
+                        ->join('phong_chieus', 'suat_chieus.id_phong_chieu', 'phong_chieus.id')
+                        ->where('ma_don_hang', $request->ma_hoa_don)
+                        ->select('phims.ten_phim','suat_chieus.ngay_chieu',
+                        'suat_chieus.thoi_gian_bat_dau','suat_chieus.thoi_gian_ket_thuc',
+                        'phong_chieus.ten_phong','phims.the_loai', 'don_hangs.tong_tien',
+                        'don_hangs.tien_thuc_nhan','don_hangs.giam_gia', 'don_hangs.ngay_dat',
+                        'don_hangs.ma_don_hang')
+                        ->first();
+
+        $ds_ve = DonHang::join('ves','don_hangs.id', 'ves.id_don_dat_ve')
+                        ->where('ma_don_hang', $request->ma_hoa_don )
+                        ->select('ves.ma_ve','ves.ten_ghe', 'ves.gia_ve')
+                        ->get();
+
+        return response()->json([
+            'data'  => $data,
+            'ds_ve' => $ds_ve
+        ]);
+    }
+    public function getPhimByDatVe(Request $request)
+    {
+        $data = DB::table('ves')
+        ->join('suat_chieus', 'ves.id_suat_chieu', '=', 'suat_chieus.id')
+        ->join('phims', 'suat_chieus.id_phim', '=', 'phims.id')
+        ->join('phong_chieus', 'suat_chieus.id_phong_chieu', '=', 'phong_chieus.id')
+        ->where('suat_chieus.id', $request->id_suat_chieu)
+        ->select('phims.*', 'suat_chieus.thoi_gian_bat_dau','suat_chieus.thoi_gian_ket_thuc', 'suat_chieus.ngay_chieu')
+        ->first();
+
+    return response()->json([
+        'data' => $data
+    ]);
     }
 }
