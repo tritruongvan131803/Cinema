@@ -74,7 +74,7 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <a target="_blank" :href="'/admin/in-ve/' +value.ma_don_hang" class="btn btn-success  pe-1 me-2">
+                                                <a target="_blank" :href="'/admin/in-ve/' + value.ma_don_hang" class="btn btn-success  pe-1 me-2">
                                                     <i class="fa-solid fa-print"></i>
                                                 </a>
                                                 <button @click="delete_DonHang = value" class="btn btn-danger"
@@ -84,7 +84,6 @@
                                             </td>
                                         </tr>
                                     </template>
-
                                 </tbody>
                             </table>
                         </div>

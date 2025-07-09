@@ -77,7 +77,10 @@ const routes = [
   {
     path: "/admin/dich-vu",
     component: () => import("../components/Admin/DichVu/index.vue"),
-    beforeEnter: checkadmin,
+  },
+  {
+    path: "/admin/soat-ve",
+    component: () => import("../components/Admin/SoatVe/SoatVe.vue"),
   },
   {
     path: "/admin/voucher",

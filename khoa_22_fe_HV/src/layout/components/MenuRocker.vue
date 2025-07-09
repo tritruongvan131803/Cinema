@@ -121,16 +121,28 @@
 						</a>
 					</li>
 				</router-link>
-				<router-link to="/admin/ve">
-					<li class="nav-item">
-						<a class="nav-link" href="/admin/ve">
-							<div class="parent-icon">
-								<i class="fa-solid fa-ticket"></i>
-							</div>
-							<div class="menu-title">Vé</div>
-						</a>
-					</li>
-				</router-link>
+				<li class="nav-item dropdown">
+					<a href="javascript:;" class="nav-link dropdown-toggle dropdown-toggle-nocaret show"
+						data-bs-toggle="dropdown" aria-expanded="true">
+						<div class="parent-icon"><i class="fa-solid fa-ticket"></i>
+						</div>
+						<div class="menu-title">Vé</div>
+					</a>
+					<ul class="dropdown-menu show" data-bs-popper="static">
+						<router-link to="/admin/ve">
+							<li>
+								<a class="dropdown-item" href="/admin/ve"><i
+										class="bx bx-right-arrow-alt"></i>Danh sách vé</a>
+							</li>
+						</router-link>
+						<router-link to="/admin/soat-ve">
+							<li>
+								<a class="dropdown-item" href="/admin/soat-ve"><i
+										class="bx bx-right-arrow-alt"></i>Tìm vé</a>
+							</li>
+						</router-link>
+					</ul>
+				</li>
 				<router-link to="/admin/bai-viet">
 					<li class="nav-item">
 						<a class="nav-link" href="/admin/bai-viet">

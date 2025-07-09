@@ -100,4 +100,27 @@ class VeController extends Controller
             ]);
         }
     }
+
+    public function soatVe(Request $request)
+    {
+        $ve = Ve::where('ma_ve', $request->noi_dung)
+                    ->join('don_hangs','ves.id_don_dat_ve', 'don_hangs.id')
+                    ->join('suat_chieus','ves.id_suat_chieu','suat_chieus.id')
+                    ->join('phims','suat_chieus.id_phim','phims.id')
+                    ->join('phong_chieus','suat_chieus.id_phong_chieu','phong_chieus.id')
+                    ->where('don_hangs.is_thanh_toan',1)
+                    ->first();
+        if($ve){
+            return response()->json([
+                'status'    => 1,
+                'data'   => $ve
+            ]);
+        } else {
+            return response()->json([
+                'status'    => 0,
+                'message'   => 'Vé không tồn tại hoặc chưa thanh toán'
+            ]);
+        }
+    }
+
 }

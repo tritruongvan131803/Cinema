@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vé điện tử DZCinemar</title>
+  <title>Vé điện tử BINICinemar</title>
   <style>
     * {
       margin: 0;
@@ -363,7 +363,7 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <h1>🎬 DZCinemar</h1>
+      <h1>🎬 BINICinemar</h1>
       <p>Trải nghiệm điện ảnh đỉnh cao</p>
     </div>
 
@@ -376,7 +376,7 @@
     <div class="content-section">
       <p style="font-size: 1.1em; text-align: center; color: #666; line-height: 1.6;">
         Chào <span class="highlight">{{$data['ho_va_ten']}}</span>,<br>
-        Cảm ơn bạn đã lựa chọn DZCinemar! Đơn hàng của bạn đã được thanh toán thành công.
+        Cảm ơn bạn đã lựa chọn BINICinemar! Đơn hàng của bạn đã được thanh toán thành công.
       </p>
     </div>
 
@@ -500,7 +500,7 @@
           </div>
           <div class="contact-item">
             <strong>✉️ Email</strong><br>
-            <a href="mailto:support@dzcinema.com">support@dzcinema.com</a>
+            <a href="mailto:support@binicinema.com">support@binicinema.com</a>
           </div>
           <div class="contact-item">
             <strong>🕒 Giờ làm việc</strong><br>
@@ -513,23 +513,23 @@
     <!-- Final Message -->
     <div class="content-section">
       <p style="text-align: center; font-size: 1.2em; color: #4CAF50; font-weight: 600; padding: 20px;">
-        🎬 Chúc bạn có những phút giây giải trí tuyệt vời tại DZCinemar! 🍿
+        🎬 Chúc bạn có những phút giây giải trí tuyệt vời tại BINICinemar! 🍿
       </p>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-      <h2 class="footer-brand">DZCinemar</h2>
+      <h2 class="footer-brand">BINICinemar</h2>
       <p class="footer-tagline">Trải nghiệm điện ảnh đỉnh cao</p>
       <div class="footer-info">
         <div>📍 123 Đường ABC, Quận XYZ, TP.HCM</div>
         <div>📞 Hotline: 1900-1234</div>
-        <div>✉️ Email: support@dzcinema.com</div>
-        <div>🌐 Website: <a href="https://dzcinema.com">www.dzcinema.com</a></div>
+        <div>✉️ Email: support@binicinema.com</div>
+        <div>🌐 Website: <a href="https://binicinema.com">www.binicinema.com</a></div>
       </div>
       <hr class="footer-divider" />
       <div class="footer-copyright">
-        © 2024 DZCinemar. Tất cả quyền được bảo lưu.<br />
+        © 2024 BINICinemar. Tất cả quyền được bảo lưu.<br />
         Email này được gửi tự động, vui lòng không phản hồi.
       </div>
     </div>

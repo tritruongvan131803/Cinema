@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Mật Khẩu - DZCinemar</title>
+    <title>Reset Mật Khẩu - BINICinemar</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #334155;">
@@ -18,7 +18,7 @@
                             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grain\" width=\"100\" height=\"100\" patternUnits=\"userSpaceOnUse\"><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"%23ffffff\" opacity=\"0.1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grain)\"/></svg></div>
                             <div style="position: relative; z-index: 1;">
                                 <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">
-                                    🎬 DZCinemar
+                                    🎬 BINICinemar
                                 </h1>
                                 <p style="margin: 8px 0 0 0; color: #e2e8f0; font-size: 16px; font-weight: 400; opacity: 0.9;">
                                     Hệ thống Rạp Phim Chuyên Nghiệp
@@ -51,7 +51,7 @@
                             </h2>
                             
                             <p style="margin: 0 0 25px 0; color: #64748b; font-size: 16px; text-align: center; line-height: 1.6;">
-                                Bạn đã yêu cầu reset mật khẩu cho tài khoản DZCinemar của mình. 
+                                Bạn đã yêu cầu reset mật khẩu cho tài khoản BINICinemar của mình. 
                                 Nhấn vào nút bên dưới để tạo mật khẩu mới.
                             </p>
 
@@ -111,8 +111,8 @@
                             <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
                                 <p style="margin: 0; color: #64748b; font-size: 14px;">
                                     Cần hỗ trợ? Liên hệ với chúng tôi tại: 
-                                    <a href="mailto:support@dzcinema.com" style="color: #f59e0b; text-decoration: none; font-weight: 500;">
-                                        support@dzcinema.com
+                                    <a href="mailto:support@binicinema.com" style="color: #f59e0b; text-decoration: none; font-weight: 500;">
+                                        support@binicinema.com
                                     </a>
                                 </p>
                             </div>
@@ -124,7 +124,7 @@
                         <td style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 30px 40px; text-align: center; border-top: 1px solid #e2e8f0;">
                             <div style="margin-bottom: 20px;">
                                 <h3 style="margin: 0 0 8px 0; color: #475569; font-size: 18px; font-weight: 600;">
-                                    🎬 DZCinemar
+                                    🎬 BINICinemar
                                 </h3>
                                 <p style="margin: 0; color: #64748b; font-size: 14px;">
                                     Trải nghiệm điện ảnh đẳng cấp thế giới
@@ -145,7 +145,7 @@
 
                             <div style="border-top: 1px solid #cbd5e1; padding-top: 20px;">
                                 <p style="margin: 0 0 8px 0; color: #64748b; font-size: 12px;">
-                                    © 2024 DZCinemar. Tất cả quyền được bảo lưu.
+                                    © 2024 BINICinemar. Tất cả quyền được bảo lưu.
                                 </p>
                                 <p style="margin: 0; color: #94a3b8; font-size: 11px;">
                                     Địa chỉ: 123 Đường Điện Ảnh, Quận 1, TP.HCM | Hotline: 1900-CINEMA

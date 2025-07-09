@@ -130,8 +130,10 @@ Route::get('/admin/don-hang/load-Data', [DonHangController::class, 'getData']);
 Route::get('/admin/don-hang/delete/{id}', [DonHangController::class, 'xoaDonHang']);
 
 // Bình luận
-
 Route::get('/admin/binh-luan/get-data', [BinhLuanController::class, 'getData']);
+
+// Soát vé
+Route::post('/admin/soat-ve', [VeController::class, 'soatVe']);
 
 
 // Client
@@ -155,7 +157,6 @@ Route::get('/client/dat-ve/{id_suat_chieu}', [VeController::class, 'getAllVe']);
 Route::post('/client/ap-voucher', [VoucherController::class, 'apDungVoucher']);
 
 //Dat Ve
-
 Route::middleware('auth:sanctum')->post('/client/dat-ve/thanh-toan', [DonHangController::class, 'thanhToan']);
 Route::get('/client/dat-ve/get-Data', [DonHangController::class, 'getData']);
 Route::post('/client/dat-ve/delete', [DonHangController::class, 'destroy']);

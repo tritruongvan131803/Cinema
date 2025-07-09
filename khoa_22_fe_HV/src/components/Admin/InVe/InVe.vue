@@ -59,12 +59,11 @@
             </div>
             <div class="barcode">
               <div class="barcode-lines">
-                <img
-                  :src="`https://barcode.tec-it.com/barcode.ashx?data=${value.ma_ve}&code=Code128&multiplebarcodes=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0`"
-                />
+                <img class="barcode-image"
+                  :src="`https://bwipjs-api.metafloor.com/?bcid=code128&text=${value.ma_ve}&includetext=false&scale=3&backgroundcolor=ffffff`" />
               </div>
-              <div class="barcode-number">{{ value.ma_ve }}</div>
             </div>
+              <div class="barcode-number text-center">{{ value.ma_ve }}</div>
           </div>
         </template>
       </div>
@@ -162,6 +161,17 @@ export default {
 };
 </script>
 <style>
+.barcode-image {
+  width: 130px;
+  /* giảm từ 180 xuống 120 */
+  height: auto;
+  max-height: 40px;
+  /* giới hạn chiều cao */
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .ticket-container {
   max-width: 400px;
   margin: 0 auto;
@@ -301,13 +311,11 @@ export default {
 }
 
 .barcode-lines {
-  background: repeating-linear-gradient(
-    90deg,
-    #000 0px,
-    #000 2px,
-    transparent 2px,
-    transparent 4px
-  );
+  background: repeating-linear-gradient(90deg,
+      #000 0px,
+      #000 2px,
+      transparent 2px,
+      transparent 4px);
   height: 40px;
   margin: 5px 0;
   border-radius: 2px;
@@ -389,20 +397,16 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: repeating-linear-gradient(
-      0deg,
+  background-image: repeating-linear-gradient(0deg,
       transparent,
       transparent 2px,
       white 2px,
-      white 4px
-    ),
-    repeating-linear-gradient(
-      90deg,
+      white 4px),
+    repeating-linear-gradient(90deg,
       transparent,
       transparent 2px,
       white 2px,
-      white 4px
-    );
+      white 4px);
 }
 
 .qr-text {

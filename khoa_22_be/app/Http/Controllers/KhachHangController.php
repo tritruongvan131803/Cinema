@@ -80,14 +80,14 @@ class KhachHangController extends Controller
         if($check){
             return response()->json([
                 'status'=>1,
-                'message'=>"Dang nhap thanh cong",
+                'message'=>"Đăng nhập thành công",
                 'token'=>$check->createToken('token_client')->plainTextToken,
             ]);
         }
         else{
             return response()->json([
                 'status'=>0,
-                'message'=>"Tai khoan khong hop le"
+                'message'=>"Tài khoản không hợp lệ"
             ]);
         }
     }
@@ -126,7 +126,7 @@ class KhachHangController extends Controller
         $b = "view_1";
         $c['ho_va_ten'] = $request->ho_va_ten;
         $c['link']      = "http://localhost:5173/client/kich-hoat/" . $key;
-        Mail::to("tritruongvan189@gmail.com")->send(new MasterMail($a, $b, $c));
+        Mail::to("$request->email")->send(new MasterMail($a, $b, $c));
         
         return response()->json([
             'status' => true,

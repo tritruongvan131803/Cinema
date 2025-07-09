@@ -43,6 +43,10 @@
                         <div class="bg-success rounded" style="width: 20px; height: 20px;"></div>
                         <span>Ghế đang chọn</span>
                     </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="bg-black rounded" style="width: 20px; height: 20px;"></div>
+                        <span>Ghế trống</span>
+                    </div>
                 </div>
             </div>
         </div>

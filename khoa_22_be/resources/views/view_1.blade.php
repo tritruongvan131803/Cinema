@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác Minh Đăng Ký - DZCinemar</title>
+    <title>Xác Minh Đăng Ký - BINICinemar</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; line-height: 1.6;">
     <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f4f4f4;">
@@ -15,11 +15,11 @@
                         <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center;">
                             <div style="background-color: #ffffff; display: inline-block; padding: 15px 25px; border-radius: 8px; margin-bottom: 20px;">
                                 <h1 style="margin: 0; color: #667eea; font-size: 28px; font-weight: bold; letter-spacing: 1px;">
-                                    🎬 DZCinemar
+                                    🎬 BINICinemar
                                 </h1>
                             </div>
                             <h2 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 300;">
-                                Chào mừng bạn đến với DZCinemar!
+                                Chào mừng bạn đến với BINICinemar!
                             </h2>
                         </td>
                     </tr>
@@ -32,7 +32,7 @@
                                     Xác Minh Tài Khoản Của Bạn
                                 </h3>
                                 <p style="color: #666666; font-size: 16px; margin-bottom: 25px; line-height: 1.8;">
-                                    Cảm ơn bạn {{ $data['ho_va_ten'] }} đã đăng ký tài khoản tại <strong>DZCinemar</strong>! 
+                                    Cảm ơn bạn {{ $data['ho_va_ten'] }} đã đăng ký tài khoản tại <strong>BINICinemar</strong>! 
                                     Để hoàn tất quá trình đăng ký và bắt đầu trải nghiệm những bộ phim tuyệt vời, 
                                     vui lòng nhấp vào nút bên dưới để xác minh địa chỉ email của bạn.
                                 </p>
@@ -78,7 +78,7 @@
                         <td style="padding: 0 30px 40px 30px;">
                             <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 12px; padding: 25px; text-align: center;">
                                 <h4 style="color: #ffffff; font-size: 18px; margin-bottom: 15px; font-weight: 600;">
-                                    🎉 Những gì đang chờ bạn tại DZCinemar:
+                                    🎉 Những gì đang chờ bạn tại BINICinemar:
                                 </h4>
                                 <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
                                     <div style="flex: 1; min-width: 150px;">
@@ -103,7 +103,7 @@
                         <td style="background-color: #2c3e50; padding: 30px; text-align: center;">
                             <div style="margin-bottom: 20px;">
                                 <h3 style="color: #ffffff; font-size: 20px; margin-bottom: 15px; font-weight: 600;">
-                                    🎬 DZCinemar
+                                    🎬 BINICinemar
                                 </h3>
                                 <p style="color: #bdc3c7; font-size: 14px; margin: 0; line-height: 1.6;">
                                     Hệ thống rạp chiếu phim hiện đại | Trải nghiệm điện ảnh đỉnh cao
@@ -115,7 +115,7 @@
                                     📧 Email này được gửi tự động, vui lòng không reply.
                                 </p>
                                 <p style="color: #95a5a6; font-size: 12px; margin: 0;">
-                                    © {{ date('Y') }} DZCinemar. All rights reserved.
+                                    © {{ date('Y') }} BINICinemar. All rights reserved.
                                 </p>
                                 <div style="margin-top: 15px;">
                                     <a href="#" style="color: #3498db; text-decoration: none; font-size: 12px; margin: 0 10px;">Chính sách bảo mật</a>

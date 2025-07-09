@@ -13,8 +13,8 @@
 			<div class="mobile-toggle-menu"><i class='bx bx-menu'></i></div>
 			<div class="search-bar flex-grow-1">
 				<div class="position-relative search-bar-box">
-					<input type="text" class="form-control search-control" placeholder="Tìm Kiếm?">
-					<span class="position-absolute top-50 search-show translate-middle-y"><i
+					<input style="padding-left: 40px;"  type="text" class="form-control search-control" placeholder="Tìm Kiếm?">
+					<span  class="position-absolute top-50 search-show translate-middle-y"><i
 							class='bx bx-search'></i></span>
 					<span class="position-absolute top-50 search-close translate-middle-y"><i
 							class='bx bx-x'></i></span>
